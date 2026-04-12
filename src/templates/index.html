@@ -25,9 +25,9 @@
         border: 2px dashed #2654ed;
         border-radius: 16px;
         padding: 40x;
+        margin: 0 auto;
         text-align: center;
         cursor: pointer;
-        transition: #2654ed 0.2s;
         width: 100%;
         max-width: 480px;
         margin-bottom: 24px;
@@ -48,6 +48,27 @@
 <body>
     <h1>Plant Disease Identifier</h1>
     <p>Upload an image of the file type PNG, JPG, or JPEG</p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+
+        <div class="upload-card" onclick="document.getElementById('file-input').click()">
+            <input type="file" id="file-input" name="image" accept="image/png, image/jpg, image/jpeg"/>
+            <label for="file-input">Click to choose an image</label>
+            <div id="preview-container">
+                <img id="image-preview" src="#" alt="Image Preview"
+                    style="display:none; max-width:300px; margin: 20px auto 20px auto;"/>
+            </div>
+        </div>
+    </form>
+
+    <button type="submit">Identify Disease →</button>
+
+    {% if disease %}
+    <div id = "result-box">
+        Identified Disease: <span>{{ disease }}</span>
+    </div>
+    {% endif %}
+
 </body>
 </html>
 
