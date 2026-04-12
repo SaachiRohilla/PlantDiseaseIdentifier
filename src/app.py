@@ -36,12 +36,11 @@ def prediction():
     
     image = Image.open(file.stream)
 
-    encoded_image = encoding(image)
-
-    output = run_model(encoded_image) 
+    #output = run_model(encoded_image) 
     #need to gte the model function and need to see what dtype is returned
 
-    return render_template("index.html", image, output)
+    #return render_template("index.html", output)
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
