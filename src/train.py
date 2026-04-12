@@ -196,9 +196,6 @@ def main():
     print("\nClassification Report:")
     print(classification_report(y_true, y_pred, target_names=CLASSES))
 
-    # =========================
-    # SAVE MODEL
-    # =========================
     model.save(MODEL + ".keras", include_optimizer=False)
 
     with open(os.path.join(BASE_DIR, "model", "label_map.json"), "w") as f:
@@ -206,8 +203,5 @@ def main():
 
     print("Saved model successfully!")
 
-# =========================
-# RUN
-# =========================
 if __name__ == "__main__":
     main()

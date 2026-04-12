@@ -4,9 +4,6 @@ import numpy as np
 import os
 import shutil
 
-# =========================
-# FIXED PATH SETUP
-# =========================
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 randomdata_root = os.path.join(project_root, 'randomdata')
@@ -15,9 +12,6 @@ vectorize_root = os.path.join(project_root, 'vectorize_data')
 # wipe old vectorized data safely
 shutil.rmtree(vectorize_root, ignore_errors=True)
 
-# =========================
-# IMAGE CONVERTER FUNCTION
-# =========================
 def get_images(classification):
     plants_dir = os.path.join(randomdata_root, classification)
     plants_vectorize_dir = os.path.join(vectorize_root, classification)
@@ -50,10 +44,6 @@ def get_images(classification):
             print(f"ERROR on file: {filename}")
             print(e)
 
-
-# =========================
-# RUN ALL CLASSES
-# =========================
 classes = ["bac", "fung", "hea", "pes", "vir"]
 
 for c in classes:
