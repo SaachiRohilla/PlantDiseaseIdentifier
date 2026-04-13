@@ -56,7 +56,7 @@ def prediction():
         idx = int(np.argmax(preds))
         if float(preds[idx]) < 0.8:
             return jsonify({'error':'Photo Does Not Match One of the Classifications'}),  500
-        return jsonify({'class': LABELS[idx] if LABELS else str(idx), 'confidence': "{(preds[idx]*100):.2f}%"})
+        return jsonify({'class': LABELS[idx] if LABELS else str(idx), 'confidence': f"{(preds[idx]*100):.2f}%"})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     #need to call model here 
