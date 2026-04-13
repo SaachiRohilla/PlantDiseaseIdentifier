@@ -41,39 +41,44 @@
     <h1>Plant Disease Identifier</h1>
     <p>Upload an image of the file type PNG, JPG, or JPEG</p>
 
-    <form action="/predict" method="POST" enctype="multipart/form-data">
+    <form id="prediction-form" action="/prediction" method="POST" enctype="multipart/form-data">
 
         <div class="upload-card" onclick="document.getElementById('file-input').click()">
             <input type="file" id="file-input" name="image" accept="image/png, image/jpg, image/jpeg"/>
-            <label for="file-input">Click to choose an image</label>
+            <label id = "file-label">Click to choose an image</label>
             <div id="preview-container">
                 <img id="image-preview" src="#" alt="Image Preview"
                     style="display:none; max-width:300px; margin: 20px auto 20px auto;"/>
             </div>
         </div>
+        <button type="submit">Identify Disease →</button>
     </form>
 
-    <button type="submit">Identify Disease →</button>
+    <h1 id = "result-box">temp</h1>
+    <!--<button type="submit">Identify Disease →</button>
 
     {% if disease %}
     <div id = "result-box">
         Identified Disease: <span>{{ disease }}</span>
     </div>
-    {% endif %}
+    {% endif %}-->
 
 </body>
 </html>
 
-<input type="file" id="file-input" accept="image/*">
+<!--<input type="file" id="file-input" accept="image/*">
 <div id="preview-container">
   <img id="image-preview" src="#" alt="Image Preview" style="display:none; max-width: 200px;">
 </div>
+-->
 
 <script>
-  const fileInput = document.getElementById('file-input');
-  const imagePreview = document.getElementById('image-preview');
-
-  fileInput.addEventListener('change', function() {
+    const form = document.getElementById('prediction-form');
+    const result = document.getElementById('result-box');
+    const fileInput = document.getElementById('file-input');
+    const imagePreview = document.getElementById('image-preview');
+    fileInput.addEventListener('change', function() {
+    const iView = document.getElementById('imageView');
     const file = this.files[0];
     if (file) {
       const reader = new FileReader();
@@ -82,7 +87,19 @@
         imagePreview.style.display = 'block';
       };
       reader.readAsDataURL(file);
+      document.getElementById('file-label').textContent = file.name;
     }
   });
+
+    form.addEventListener("submit", async function(event){
+        event.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch("/prediction",{method:"POST", body:formData});
+        const data = await response.json();
+        if(data.error)
+            result.textContent = data.error;
+        else
+            result.textContent = 'class: '+data.class+" confidence: "+data.confidence;
+    });
 </script>
 
