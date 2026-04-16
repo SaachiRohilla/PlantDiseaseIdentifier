@@ -7,13 +7,14 @@
 <style>
     body{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #000000;
+        background: #3a593f;
         color: #ffffff;
         text-align: center;
         align-content: center;
         padding: 40px;
     }
     h1{
+        color: #ffffff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 2;
         text-align: center;
@@ -21,8 +22,8 @@
         margin-bottom: 8px;
     }
     .upload-card{
-        background-color: #52c2ff;
-        border: 2px dashed #2654ed;
+        background-color: #56825d;
+        border: 2px dashed #609168;
         border-radius: 16px;
         padding: 40x;
         margin: 0 auto;
@@ -54,23 +55,9 @@
         <button type="submit">Identify Disease →</button>
     </form>
 
-    <h1 id = "result-box">temp</h1>
-    <!--<button type="submit">Identify Disease →</button>
-
-    {% if disease %}
-    <div id = "result-box">
-        Identified Disease: <span>{{ disease }}</span>
-    </div>
-    {% endif %}-->
-
+    <h1 id = "result-box"></h1>
 </body>
 </html>
-
-<!--<input type="file" id="file-input" accept="image/*">
-<div id="preview-container">
-  <img id="image-preview" src="#" alt="Image Preview" style="display:none; max-width: 200px;">
-</div>
--->
 
 <script>
     const form = document.getElementById('prediction-form');
