@@ -7,7 +7,7 @@ To start flask application run: python3 src/app.py <br>
 Click on the link to the development server or copy/paste the url into a trusted browser<br>
 Press CTRL+C to quit the application <br>
 
-## Brief Directory Overview: <br>
+## Directory Overview: <br>
 
 app.py - main flask application <br>
 gettingkaggle.py - import kaggle dataset and randomly samples files for training and testing <br>
