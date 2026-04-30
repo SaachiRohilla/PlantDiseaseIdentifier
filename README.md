@@ -1,4 +1,4 @@
-# Plant Disease Identifier <br/ >
+# Plant Disease Identifier <br>
 ## Group 13: Saachi Rohilla (sr1902), Vivian Chung (vec43), Maya Zarcone (mez59) <br/ >
 
 ## How to run web application: <br/ >
