@@ -9,10 +9,10 @@ Press CTRL+C to quit the application <br>
 
 ## Directory Overview: <br>
 
-app.py - main flask application <br>
-gettingkaggle.py - import kaggle dataset and randomly samples files for training and testing <br>
-train.py - loads dataset and model, does preprocessing on data, trains, evaluates, and saves model <br>
+src/app.py - main flask application <br>
+src/gettingkaggle.py - import kaggle dataset and randomly samples files for training and testing <br>
+src/train.py - loads dataset and model, does preprocessing on data, trains, evaluates, and saves model <br>
 randomdata - stores the raw jpg images before they are processed into numpy arrays <br>
-vectorize.py - converts jpg images into numpy arrays for model training <br>
-vectorize_data - numpy arrays are placed in one of 5 sub-folders corresponding to their status as healthy or infected <br> 
-Templates - stores html files <br>
+src/vectorize.py - converts jpg images into numpy arrays for model training <br>
+src/vectorize_data - numpy arrays are placed in one of 5 sub-folders corresponding to their status as healthy or infected <br> 
+src/Templates - stores html files <br>
